@@ -36,10 +36,14 @@
 
 ; 3. Write a function which takes a mixed list (numbers and other items) & returns the     list with all numbers incremented, other items should be left as is. 
 ;     eg: (inc-list1 '(cat 4 dog 3 x 5)) => (cat 5 dog 4 x 6)
-
-
-
-
+(defn inc-list1 [x]
+  (if (empty? x)
+      ()
+      (if (instance? Long (first x))
+          (cons (+ (first x) 1) (inc-list1 (rest x)))
+          (cons (first x) (inc-list1 (rest x))))))
+  
+(inc-list1 '(1 2 3 4 "cat"))
 
 
 
